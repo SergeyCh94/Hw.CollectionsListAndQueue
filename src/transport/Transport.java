@@ -34,7 +34,7 @@ public abstract class Transport<T> implements Competing {
         if (driver.getDriverLicense() == null){
             throw new DriverLicenseException("Забыли водителя");
         } else {
-            System.out.println("Водитель " + driver + " управляет автомобилем " +  getBrand() + " " + getModel() +
+            System.out.println("Водитель " + driver.getFio() + " управляет автомобилем " +  getBrand() + " " + getModel() +
                     " и будет участвовать в заезде");
         }
     }
