@@ -1,4 +1,4 @@
-package driver;
+package transport;
 
 public class Mechanic {
     private String name;

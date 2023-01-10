@@ -1,6 +1,7 @@
 import driver.*;
 import transport.Bus;
 import transport.Car;
+import transport.Mechanic;
 import transport.Trucks;
 
 import java.util.ArrayList;
@@ -27,23 +28,22 @@ public class Main {
         Driver db1 = new DriverD("NameBus1", Driver.DriverLicense.D);
         Driver db2 = new DriverD("NameBus2", Driver.DriverLicense.D);
 
-        Mechanic mc1 = new Mechanic("NameMechanic1", Mechanic.CarCategory.CAR);
-        Mechanic mc2 = new Mechanic("NameMechanic1", Mechanic.CarCategory.TRUCK);
-        Mechanic mc3 = new Mechanic("NameMechanic1", Mechanic.CarCategory.BUS);
+        Mechanic m1 = new Mechanic("Sam", Mechanic.CarCategory.CAR);
+        Mechanic m2 = new Mechanic("Din", Mechanic.CarCategory.CAR);
 
-        ArrayList<Car> cars = new ArrayList<Car>();
+        ArrayList<Car> cars = new ArrayList<>();
         cars.add(c1);
         cars.add(c2);
 
-        ArrayList<Trucks> trucks = new ArrayList<Trucks>();
+        ArrayList<Trucks> trucks = new ArrayList<>();
         trucks.add(t1);
         trucks.add(t2);
 
-        ArrayList<Bus> buses = new ArrayList<Bus>();
+        ArrayList<Bus> buses = new ArrayList<>();
         buses.add(b1);
         buses.add(b2);
 
-        ArrayList<Driver> drivers = new ArrayList<Driver>();
+        ArrayList<Driver> drivers = new ArrayList<>();
         drivers.add(dc1);
         drivers.add(dc2);
         drivers.add(dt1);
@@ -51,10 +51,8 @@ public class Main {
         drivers.add(db1);
         drivers.add(db2);
 
-        ArrayList<Mechanic> mechanics = new ArrayList<Mechanic>();
-        mechanics.add(mc1);
-        mechanics.add(mc2);
-        mechanics.add(mc3);
+        c1.addMechanic(m1);
 
+        System.out.println(c1);
     }
 }

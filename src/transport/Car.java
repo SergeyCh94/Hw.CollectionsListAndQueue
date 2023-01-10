@@ -5,16 +5,12 @@ import driver.Driver;
 import driver.DriverB;
 import driver.DriverLicenseException;
 
-public class Car extends Transport <DriverB>{
-    @Override
-    public void printType() {
-        if (bodyType == null){
-            System.out.println("Данных по транспортному средству недостаточно");
-        } else {
-            System.out.println(bodyType);
-        }
-    }
+import java.util.ArrayList;
 
+public class Car extends Transport <DriverB>{
+    private BodyType bodyType;
+
+    private Mechanic mechanic;
     public enum BodyType {SEDAN("Седан"),
         HATCHBACK("Хэтчбек"),
         COMPARTMENT("Купе"),
@@ -40,9 +36,14 @@ public class Car extends Transport <DriverB>{
             return body;
         }
     }
-
-    private BodyType bodyType;
-
+    @Override
+    public void printType() {
+        if (bodyType == null){
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(bodyType);
+        }
+    }
     @Override
     public void passDiagnostics() {
         System.out.println("Диагностика");
@@ -50,7 +51,7 @@ public class Car extends Transport <DriverB>{
 
     @Override
     public String toString() {
-        return "Модель " + getBrand() + " " + getModel() + ", Объем двигателя - " + getEngineVolume();
+        return "Модель " + getBrand() + " " + getModel() + ", Объем двигателя - " + getEngineVolume() + ", " + getMechanic();
     }
 
     @Override
@@ -63,11 +64,24 @@ public class Car extends Transport <DriverB>{
         this.bodyType = bodyType;
     }
 
+    @Override
+    public void addMechanic(Mechanic mechanic) {
+        super.addMechanic(mechanic);
+    }
+
     public BodyType getBodyType() {
         return bodyType;
     }
 
     public void setBodyType(BodyType bodyType) {
         this.bodyType = bodyType;
+    }
+
+    public Mechanic getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(Mechanic mechanic) {
+        this.mechanic = mechanic;
     }
 }

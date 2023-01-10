@@ -1,15 +1,23 @@
 package transport;
-
-
 import driver.Driver;
 import driver.DriverLicenseException;
+
+import java.util.ArrayList;
 
 public abstract class Transport<T> implements Competing {
     private final String brand;
     private final String model;
     private final double engineVolume;
 
-    public Transport(final String brand, String model, double engineVolume) {
+    private Mechanic mechanic;
+
+    private final ArrayList<Mechanic> mechanics = new ArrayList<>();
+
+    public void addMechanic(Mechanic mechanic){
+        mechanics.add(mechanic);
+    }
+
+    public Transport(String brand, String model, double engineVolume) {
         if (brand == null || brand.isEmpty() || brand.isBlank()){
             this.brand = "default";
         } else {
@@ -74,4 +82,11 @@ public abstract class Transport<T> implements Competing {
         return engineVolume;
     }
 
+    public Mechanic getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(Mechanic mechanic) {
+        this.mechanic = mechanic;
+    }
 }
