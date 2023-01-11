@@ -15,12 +15,14 @@ public class Driver {
         return "Водитель " + fio + ", Водительское удостоверение " + driverLicense;
     }
 
-    public Driver (String fio) {
+    public Driver (String fio, DriverLicense driverLicense) {
         if (fio == null || fio.isEmpty() || fio.isBlank()){
             this.fio = "default";
         } else {
             this.fio = fio;
         }
+
+        this.driverLicense = driverLicense;
     }
 
     public void setDriverLicense(DriverLicense driverLicense) {
